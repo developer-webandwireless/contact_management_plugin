@@ -1,0 +1,64 @@
+a.glyphicon{
+	text-decoration: none !important;
+}
+
+#contacts-table th,#contacts-table  td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table-borderless td,
+.table-borderless th {
+    border: none !important;
+}
+
+#view-contact-table td.table-label, #update-contact-table td.table-label{ 
+	text-align: right;
+	width: 25%;
+}
+
+#view-contact-table [id*='contact-'] {
+font-weight: 600;
+}
+
+td.action, th.action{
+	text-align: center !important;
+}
+
+
+form label.error, p.error{
+	padding-top:2px;
+	font-size:12px !important;
+    line-height:14px;
+    color:#c0392b
+}
+
+
+#custom-login input#user_login[type="text"], #custom-login input#user_pass[type="password"] {
+	    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border: 1px solid #ccc;
+
+}
+
+#custom-login label{
+	margin-bottom: 5px;
+    margin-right: .75em;
+    font-size: 16px;
+	font-weight: 400;
+}
+
+#custom-login  input[type=submit]{
+	text-decoration: none;
+    font-size: 18px;
+    line-height: 40px;
+	background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+
+#custom-login  input[type=submit]:hover{
+	 border: 1px solid #000;
+}
