@@ -1,11 +1,26 @@
-<div class="container"  style="margin-top: 40px;">
+<div class="container"  style="margin-top: 40px; margin-bottom: 20px;">
 
-<div class="col col-xs-6 ">
 <h3>View, Add, Update and Delete contact details.</h3>
+<div class="col col-xs-6 ">
+		<!--a class="" href="#"><span class="flagContact"></span></a-->
+	<select class="form-control input-sm" style="width: auto; display: inline;">
+		<option selected disabled value="">Bulk Action</option>
+		<option value="1">Flag</option>
+		<option value="2">Delete</option>
+	</select>     
+ <button type="button" class="btn btn-small" style="margin-right: 10px;"> Apply </button>
+
 </div>
+
 <div class="col col-xs-6 text-right">
-         <button type="button" class="btn btn-primary newContact"
+ 
+ <div class="col col-md-6 ">
+ <input type="text" id="input_search" name="input_search" class="form-control" placeholder="Search..." style="width: auto;">
+ </div>
+ <div class="col col-md-6 ">
+    <button type="button" class="btn btn-primary newContact"
 		data-toggle="modal" data-target="#new_contact_modal" >Create New Contact</button>
+</div>
 </div>
 <!--div class="alert alert-success collapse" id="success-alert" style="">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -21,12 +36,13 @@
 		data-search="true" --> 
         <thead>  
           <tr>  
+			<th>&nbsp;<input type="checkbox" name="name1" />&nbsp;</th>
 			<th>Name</th>
 			<th >Email</th> 
 			<th >Phone </th>
 			<th >Type </th>
 			<th >Date Added </th>
-			<th colspan ="3" class="action"> Action</th>
+			<th colspan ="4" class="action"> Action</th>
 
 
           </tr>  
@@ -40,7 +56,8 @@
 							//echo json_encode($contact_record);
 							$contactData =  htmlentities(json_encode($contact_record));
 						
-							echo "<tr data-attr-id = '". $contact_record['id']."' data-contact-record = '". $contactData."'>"; 
+							echo "<tr data-attr-id = '". $contact_record['id']."' data-contact-record = '". $contactData."'>";
+							echo '<th>&nbsp;<input type="checkbox" name="name1" />&nbsp;</th>';
 							echo '<td>'.  $contact_record['name'] . ' </td>'; 
 							echo '<td>'.  $contact_record['email'] . ' </td>'; 
 							echo '<td>'.  $contact_record['phone'] . ' </td>'; 
@@ -57,10 +74,20 @@
 							$newDate = date("d - M - Y", strtotime($contact_record['date_added']));
 							
 							echo '<td>'. $newDate . '</td>';
+														
+							$flag= plugin_dir_url( __FILE__ )."images/flag-icon.png";
+							$flag_fill= plugin_dir_url( __FILE__ )."images/flag-icon-fill.png";
+
+							echo '<td class="action"><a class="flagContact" href="#">
+								
+								<img  src="'.$flag.'" class="flagImg '.(($contact_record['flag']!= 0)?'hide"':'"').'/>
+								<img  src="'.$flag_fill.'" class="flagImg '.(($contact_record['flag']== 0)?'hide"':'"').'/>
+							</a></td>';
+
 							echo '<td class="action"><a										
 								 class="viewContact glyphicon glyphicon-plus" href="#"
 								 data-toggle="modal" data-target="#view_modal"></a></td>';
-
+							
 							echo '<td class="action"><a 
 							class="updateContact glyphicon glyphicon-pencil" href="#"
 							data-toggle="modal" data-target="#update_modal" ></a></td>';
