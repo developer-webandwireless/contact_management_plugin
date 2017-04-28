@@ -1,5 +1,5 @@
 # leads_management_plugin
-A simple contact management app to manage leads using view/add/update/delete functions. The app can also capture leads from the web forms.
+A simple simple WordPress plugin to manage leads using view/add/update/delete functions. The app can also capture leads from the web forms.
 
 Created using PHP5, MySQL, Bootstrap, jQuery, AJAX 
 
